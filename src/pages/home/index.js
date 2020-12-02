@@ -2,10 +2,13 @@ import React, { Fragment } from 'react'
 
 import Products from '../../components/Products'
 
-const Home = () => {
+const Home = ({products, isLoading}) => {
   return (
     <Fragment>
-      <Products />
+      <Products 
+        products={products}
+        isLoading={isLoading}
+      />
     </Fragment>
   )
 }
