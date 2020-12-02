@@ -15,7 +15,7 @@ import {
   NavListItem,
 } from './styled'
 
-const NavBar = () => {
+const NavBar = ({cart}) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleToggle = () => setIsOpen(!isOpen)
 
@@ -27,10 +27,9 @@ const NavBar = () => {
           <NavButtonsWrapper>
             <ShoppingCartWrapper>
               <ShoppingCartIcon />
-              {/*To do: 
-               1. display dinamicaly items
-               2. show cart items number only if > 0 */}
-              <ShoppingCartItems>{2}</ShoppingCartItems>
+               {cart.total_items > 0
+                && <ShoppingCartItems>{cart.total_items}</ShoppingCartItems>
+               }
             </ShoppingCartWrapper>
             <NavButton onClick={handleToggle}>
               {isOpen ? <CloseMenuIcon /> : <NavMenuIcon />}

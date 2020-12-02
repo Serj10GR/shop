@@ -91,6 +91,7 @@ export const NavListItem = styled.li`
 export const ShoppingCartWrapper = styled.div`
   margin-right: 20px;
   position: relative;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     position: absolute;

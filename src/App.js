@@ -15,6 +15,7 @@ import Error from './pages/error'
 const App = () => {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [cart, setCart] = useState({})
 
   const getProducts = async () => {
     setIsLoading(true)
@@ -23,20 +24,34 @@ const App = () => {
     setIsLoading(false)
   }
 
+  const getCartData = async () => {
+    const res = await commerce.cart.retrieve()
+    setCart(res)
+  }
+  const addToCart = async (productId, quantity) => {
+    const item = await commerce.cart.add(productId, quantity)
+    setCart(item.cart)
+  }
+
   useEffect(() => {
-    getProducts() 
+    getProducts()
+    getCartData() 
   }, [])
+
+  console.log(cart)
   return (
     <Fragment>
       <GlobalStyles />
-      <NavBar />
+      <NavBar cart={cart} />
       <Switch>
         <Route 
           path='/' exact 
           render={() => (
             <Home 
               products={products} 
-              isLoading={isLoading} />
+              isLoading={isLoading}
+              addToCart={addToCart} 
+              />
           )} />
         <Route path='/about/' component={About} />
         <Route path='/contact' component={Contact} />

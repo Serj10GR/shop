@@ -10,7 +10,13 @@ import {
   AddBtn
   } from './styled'
 
-const Product = ({name, price, description, img}) => {
+const Product = ({
+  id,
+  name, 
+  price, 
+  description, 
+  img,
+  addToCart}) => {
   return (
     <ProductWrapper>
       <ProductHeader>
@@ -21,7 +27,11 @@ const Product = ({name, price, description, img}) => {
       </ProductHeader>
       <Title>{name}</Title>
       <Description>{description}</Description>
-      <AddBtn>Add to Cart</AddBtn>
+      <AddBtn 
+        onClick={() => addToCart(id, 1)}
+      >
+        Add to Cart
+      </AddBtn>
 
       
     </ProductWrapper>
