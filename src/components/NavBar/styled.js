@@ -45,19 +45,7 @@ export const CloseMenuIcon = styled(MdClose)`
   font-size: 1.5rem;
   color: #af9a7d;
 `
-export const ShoppingCartIcon = styled(MdShoppingCart)`
-  font-size: 2rem;
-  color: #F5A623;
-  margin-right: 20px;
 
-  @media (min-width: 768px) {
-    position: absolute;
-    right: 210px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 0;
-  }
-`
 export const NavButtonsWrapper = styled.div`
   display: flex;
 `
@@ -98,4 +86,37 @@ export const NavListItem = styled.li`
     color: #F5A623;
     border-bottom: 2px solid #F5A623;
   }
+`
+
+export const ShoppingCartWrapper = styled.div`
+  margin-right: 20px;
+  position: relative;
+
+  @media (min-width: 768px) {
+    position: absolute;
+    right: 210px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0;
+  }
+`
+export const ShoppingCartIcon = styled(MdShoppingCart)`
+  font-size: 2rem;
+  color: #F5A623;  
+`
+
+export const ShoppingCartItems = styled.div`
+  position: absolute;
+  top: -8px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  
 `

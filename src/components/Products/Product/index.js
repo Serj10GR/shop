@@ -15,7 +15,7 @@ const Product = ({name, price, description}) => {
     <ProductWrapper>
       <ProductHeader>
         <ImgWrapper>
-          <img src="https://lh3.googleusercontent.com/proxy/grsxlUJ-id8cPrD52aiYqJYTHqDIu-uq98Qi1qqLZ5FjiZI_KtSECFz0DLHzrlMzJgbVD3jg9IEN-GvU58xKRtR1Gbwgul8KoZh84tGvuU9wZevY_x_FEfm1j80lABI" alt=""/>
+          <img src="https://lh3.googleusercontent.com/proxy/VsNIXA3I0osmvFdbLoHkjD56k4uq_tPOWdH0Ux4Drm-MtMlmpEN-dUVu-fGR0Py6mnLuGiOzr6cZinMrewLfbnG2R5lpNDx-ymr3eWTZ_aDj1pDiE-yVAK6E8u0" alt=""/>
         </ImgWrapper>
         <Price>{price} <span>MDL</span></Price>
       </ProductHeader>

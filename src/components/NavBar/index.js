@@ -8,6 +8,8 @@ import {
   NavMenuIcon,
   CloseMenuIcon,
   ShoppingCartIcon,
+  ShoppingCartWrapper,
+  ShoppingCartItems,
   NavButtonsWrapper,
   NavList,
   NavListItem,
@@ -23,7 +25,13 @@ const NavBar = () => {
         <NavHeader>
           <Link to='/'>Speranta Plus Sashimi</Link>
           <NavButtonsWrapper>
-            <ShoppingCartIcon />
+            <ShoppingCartWrapper>
+              <ShoppingCartIcon />
+              {/*To do: 
+               1. display dinamicaly items
+               2. show cart items number only if > 0 */}
+              <ShoppingCartItems>{2}</ShoppingCartItems>
+            </ShoppingCartWrapper>
             <NavButton onClick={handleToggle}>
               {isOpen ? <CloseMenuIcon /> : <NavMenuIcon />}
             </NavButton>
