@@ -1,6 +1,6 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 
-import { FaCartArrowDown, FaShoppingCart } from 'react-icons/fa'
+import { FaCartArrowDown } from 'react-icons/fa'
 import { AiFillPlusCircle } from 'react-icons/ai'
 
 export const CartContainer = styled.section`

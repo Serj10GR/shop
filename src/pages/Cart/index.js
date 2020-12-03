@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 
 import { Link } from 'react-router-dom'
+
 import CartItem from '../../components/CartItem'
 
 import {
@@ -15,9 +16,11 @@ import {
   ActionIcon,
    } from './styled'
 
-{/* {cart.line_items.map(item => <CartItem /> )} */ }
+
 const Cart = ({cart}) => {
-  const isEmpty = true
+  const isEmpty = false;
+  console.log(cart.line_items)
+  
   return (
     <CartContainer>
       <CartWrapper>
@@ -43,7 +46,9 @@ const Cart = ({cart}) => {
                   </Link> 
                 </CartText>
              </Fragment>
-             : null
+             : <Fragment>
+                 {cart.line_items.map(item => <CartItem key={item.id} {...item}/>)}
+             </Fragment>
           }
         </CartContent>
 
