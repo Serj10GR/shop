@@ -8,7 +8,7 @@ import {
   NavMenuIcon,
   CloseMenuIcon,
   ShoppingCartIcon,
-  ShoppingCartWrapper,
+  CartLink,
   ShoppingCartItems,
   NavButtonsWrapper,
   NavList,
@@ -25,12 +25,12 @@ const NavBar = ({cart}) => {
         <NavHeader>
           <Link to='/'>Speranta Plus Sashimi</Link>
           <NavButtonsWrapper>
-            <ShoppingCartWrapper>
+            <CartLink to='/cart'>
               <ShoppingCartIcon />
                {cart.total_items > 0
                 && <ShoppingCartItems>{cart.total_items}</ShoppingCartItems>
                }
-            </ShoppingCartWrapper>
+            </CartLink>
             <NavButton onClick={handleToggle}>
               {isOpen ? <CloseMenuIcon /> : <NavMenuIcon />}
             </NavButton>

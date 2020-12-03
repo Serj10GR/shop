@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 import { MdRestaurantMenu, MdClose, MdShoppingCart } from 'react-icons/md'
 
 export const NavBarContainer = styled.nav`
@@ -88,7 +90,7 @@ export const NavListItem = styled.li`
   }
 `
 
-export const ShoppingCartWrapper = styled.div`
+export const CartLink = styled(Link)`
   margin-right: 20px;
   position: relative;
   cursor: pointer;

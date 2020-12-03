@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import Home from './pages/home'
 import About from './pages/about'
 import Contact from './pages/contact'
+import Cart from './pages/Cart'
 import Error from './pages/error'
 
 
@@ -55,6 +56,7 @@ const App = () => {
           )} />
         <Route path='/about/' component={About} />
         <Route path='/contact' component={Contact} />
+        <Route path='/cart' component={Cart} />
         <Route component={Error} />
       </Switch>
     </Fragment>
