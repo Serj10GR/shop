@@ -34,7 +34,9 @@ export const TotalPrice = styled.h3`
  font-size: 1.5rem;
  
   span {
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    margin-left: 5px;
+    color: #DC4763;
   }
 `
 export const CartContent = styled.div`
@@ -67,5 +69,20 @@ export const ActionIcon = styled(AiFillPlusCircle)`
   font-size: 2rem;
   color: #DC4763;
   margin-left: 0.4em;
+`
+export const Button = styled.button`
+  width: 100%;
+  height: 87px;
+  outline: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 0;
+  background: linear-gradient(to right, #B7798C, #DC4763);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
 `
 

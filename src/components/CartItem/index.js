@@ -4,21 +4,26 @@ import {
   QuantWrapper,
   ArrowDown,
   ArrowUp,
-  NumberSpan, Text} from './styled'
+  NumberSpan,
+  PriceWrapper,
+  CloseButton,
+  CloseIcon
+} from './styled'
 
-const CartItem = ({name, media, quantity}) => {
+const CartItem = ({name, media, quantity, price}) => {
   return (
     <CartItemWrapper>
       <img src={media.source} alt={name}/>
-      <Tex>
-        <ItemTitle>{name}</ItemTitle>
-
-      </Tex>   
+      <ItemTitle>{name}</ItemTitle>
       <QuantWrapper>
         <ArrowUp />
        <NumberSpan>{quantity}</NumberSpan>
         <ArrowDown />
       </QuantWrapper>
+      <PriceWrapper>{price.formatted_with_code}</PriceWrapper>
+      <CloseButton>
+        <CloseIcon />
+      </CloseButton>
     </CartItemWrapper>
   )
 }

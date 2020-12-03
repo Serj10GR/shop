@@ -39,7 +39,6 @@ const App = () => {
     getCartData() 
   }, [])
 
- 
   return (
     <Fragment>
       <GlobalStyles />

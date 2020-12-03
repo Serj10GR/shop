@@ -14,12 +14,14 @@ import {
   CartText,
   EmptyCartIcon,
   ActionIcon,
+  Button,
    } from './styled'
 
 
 const Cart = ({cart}) => {
-  const isEmpty = false;
-  console.log(cart.line_items)
+  const isEmpty = !cart.line_items?.length; 
+
+
   
   return (
     <CartContainer>
@@ -29,7 +31,9 @@ const Cart = ({cart}) => {
           {
             !isEmpty
             &&
-            <TotalPrice>129 <span>MDL</span></TotalPrice>
+            <TotalPrice>
+              {cart.subtotal.formatted}<span>MDL</span>
+            </TotalPrice>
           }
           
         </CartHeader>
@@ -51,6 +55,10 @@ const Cart = ({cart}) => {
              </Fragment>
           }
         </CartContent>
+        {
+          !isEmpty 
+          && <Button>Comanda acum</Button>
+        }
 
       </CartWrapper>
     </CartContainer>
