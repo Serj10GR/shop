@@ -39,7 +39,7 @@ const App = () => {
     getCartData() 
   }, [])
 
-  console.log(cart)
+ 
   return (
     <Fragment>
       <GlobalStyles />
@@ -56,7 +56,11 @@ const App = () => {
           )} />
         <Route path='/about/' component={About} />
         <Route path='/contact' component={Contact} />
-        <Route path='/cart' component={Cart} />
+        <Route 
+          path='/cart' 
+          render={() => (
+            <Cart cart={cart} />
+          )} />
         <Route component={Error} />
       </Switch>
     </Fragment>

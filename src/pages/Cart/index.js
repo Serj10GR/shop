@@ -4,45 +4,55 @@ import { Link } from 'react-router-dom'
 import CartItem from '../../components/CartItem'
 
 import {
+  CartContainer,
   CartWrapper,
+  CartHeader,
   CartTitle,
+  TotalPrice,
+  CartContent,
   CartText,
-  CartInner,
   EmptyCartIcon,
   ActionIcon,
-  CartItems,
-  FullCartIcon } from './styled'
+   } from './styled'
 
-  
-const Cart = () => {
-  const isEmpty = true;
+{/* {cart.line_items.map(item => <CartItem /> )} */ }
+const Cart = ({cart}) => {
+  const isEmpty = true
   return (
-    <CartWrapper>
-      <CartTitle>Your Cart</CartTitle>
-      <CartInner>
-        {
-          isEmpty
+    <CartContainer>
+      <CartWrapper>
+        <CartHeader>
+          <CartTitle>My Cart</CartTitle>
+          {
+            !isEmpty
+            &&
+            <TotalPrice>129 <span>MDL</span></TotalPrice>
+          }
+          
+        </CartHeader>
+        <CartContent isEmptyCart={isEmpty}>
+          {
+            isEmpty
              ? <Fragment>
-                <EmptyCartIcon />
-                <CartText>Nu ai nimic în coș</CartText>
+               <EmptyCartIcon />
+               <CartText>Coșul tău e gol</CartText>
                 <CartText>
-                  Adaugă ceva!
-                    <Link to='/'>
-                      <ActionIcon /> 
-                    </Link>          
+                  Adaugă ceva gustos
+                  <Link to='/'>
+                    <ActionIcon />
+                  </Link> 
                 </CartText>
-               </Fragment>              
-            : <Fragment>
-                <FullCartIcon />
-                <CartItems>
-                 <CartItem />
-                </CartItems>
-            </Fragment>
-        }
+             </Fragment>
+             : null
+          }
+        </CartContent>
 
-      </CartInner>
-      
-    </CartWrapper>
+      </CartWrapper>
+    </CartContainer>
+
+    
+    
+              
   )
 }
 

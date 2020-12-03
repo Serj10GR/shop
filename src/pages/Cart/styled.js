@@ -1,23 +1,54 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import { FaCartArrowDown, FaShoppingCart } from 'react-icons/fa'
 import { AiFillPlusCircle } from 'react-icons/ai'
 
-export const CartWrapper = styled.div`
+export const CartContainer = styled.section`
   max-width: 1270px;
   margin: 0 auto;
+  padding-top: 50px;
 `
-export const CartTitle = styled.h1`
-  text-align: center;
-  margin-top: 1em;
-  letter-spacing: 3px;
+export const CartWrapper = styled.div`
+  width: 474px;
+  margin: 0 auto;
+  color: #1B2968;
 `
-export const CartInner = styled.div`
-  margin-top: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+export const CartHeader = styled.header`
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color: #fff;
+ height: 75px;
+ padding: 0 25px;
+ border-top-left-radius: 20px;
+ border-top-right-radius: 20px;
 `
+export const CartTitle = styled.h2`
+ font-weight: 400;
+ letter-spacing: 3px;
+`
+export const TotalPrice = styled.h3`
+ font-weight: 700;
+ font-size: 1.5rem;
+ 
+  span {
+    font-size: 1.2rem
+  }
+`
+export const CartContent = styled.div`
+ width: 100%;
+ padding: ${props => props.isEmptyCart ? '50px 25px' : '10px 25px'};
+ background-color: #FDEDE3;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ border-bottom-left-radius: ${props => props.isEmptyCart ? '20px' : ''};
+ border-bottom-right-radius: ${props => props.isEmptyCart ? '20px' : ''};
+
+`
+
 export const CartText = styled.p`
   font-size: 1.2rem;
   letter-spacing: 2px;
@@ -32,18 +63,9 @@ export const EmptyCartIcon = styled(FaCartArrowDown)`
   font-size: 4rem;
   color: red;
 `
-export const FullCartIcon = styled(FaShoppingCart)`
-  font-size: 4rem;
-  color: orange;
-`
 export const ActionIcon = styled(AiFillPlusCircle)`
   font-size: 2rem;
-  color: orange;
+  color: #DC4763;
   margin-left: 0.4em;
 `
-export const CartItems = styled.div`
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
-`
+
