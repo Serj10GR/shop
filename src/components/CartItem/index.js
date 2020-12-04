@@ -10,18 +10,25 @@ import {
   CloseIcon
 } from './styled'
 
-const CartItem = ({name, media, quantity, price}) => {
+const CartItem = ({
+  id,
+  name,
+  media,
+  quantity,
+  price, 
+  removeFromCart,
+  updateCart}) => {
   return (
     <CartItemWrapper>
       <img src={media.source} alt={name}/>
       <ItemTitle>{name}</ItemTitle>
       <QuantWrapper>
-        <ArrowUp />
+        <ArrowUp onClick={() => updateCart(id, quantity + 1)}/>
        <NumberSpan>{quantity}</NumberSpan>
-        <ArrowDown />
+        <ArrowDown onClick={() => updateCart(id, quantity - 1)} />
       </QuantWrapper>
       <PriceWrapper>{price.formatted_with_code}</PriceWrapper>
-      <CloseButton>
+      <CloseButton onClick={() => removeFromCart(id)}>
         <CloseIcon />
       </CloseButton>
     </CartItemWrapper>

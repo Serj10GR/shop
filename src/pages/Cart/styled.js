@@ -48,7 +48,7 @@ export const CartContent = styled.div`
  align-items: center;
  border-bottom-left-radius: ${props => props.isEmptyCart ? '20px' : ''};
  border-bottom-right-radius: ${props => props.isEmptyCart ? '20px' : ''};
-
+ 
 `
 
 export const CartText = styled.p`

@@ -18,7 +18,7 @@ import {
    } from './styled'
 
 
-const Cart = ({cart}) => {
+const Cart = ({cart, removeFromCart, updateCart}) => {
   const isEmpty = !cart.line_items?.length; 
 
 
@@ -51,13 +51,22 @@ const Cart = ({cart}) => {
                 </CartText>
              </Fragment>
              : <Fragment>
-                 {cart.line_items.map(item => <CartItem key={item.id} {...item}/>)}
+                 {cart.line_items.map(item => 
+                   <CartItem 
+                     key={item.id} 
+                     {...item}
+                     removeFromCart={removeFromCart}
+                     updateCart={updateCart}
+                    />
+                  )}
              </Fragment>
           }
         </CartContent>
         {
           !isEmpty 
-          && <Button>Comanda acum</Button>
+          && <Link to='/checkout'>
+            <Button>Comanda acum</Button>
+          </Link>
         }
 
       </CartWrapper>

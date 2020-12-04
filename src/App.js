@@ -10,6 +10,7 @@ import Home from './pages/home'
 import About from './pages/about'
 import Contact from './pages/contact'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
 import Error from './pages/error'
 
 
@@ -30,8 +31,19 @@ const App = () => {
     setCart(res)
   }
   const addToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity)
-    setCart(item.cart)
+    const res = await commerce.cart.add(productId, quantity)
+    setCart(res.cart)
+  }
+
+  const updateCart = async (productId, quantity) => {
+    const res = await commerce.cart.update(productId, {quantity})
+    
+    setCart(res.cart)
+  }
+
+  const removeFromCart = async(productId) => {
+    const res = await commerce.cart.remove(productId)
+    setCart(res.cart)
   }
 
   useEffect(() => {
@@ -58,8 +70,13 @@ const App = () => {
         <Route 
           path='/cart' 
           render={() => (
-            <Cart cart={cart} />
+            <Cart 
+              cart={cart}
+              updateCart={updateCart}
+              removeFromCart={removeFromCart} 
+            />
           )} />
+        <Route path='/checkout' component={Checkout} />
         <Route component={Error} />
       </Switch>
     </Fragment>
