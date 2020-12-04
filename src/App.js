@@ -76,7 +76,11 @@ const App = () => {
               removeFromCart={removeFromCart} 
             />
           )} />
-        <Route path='/checkout' component={Checkout} />
+        <Route
+          path='/checkout'
+          render={() => (
+            <Checkout cart={cart}/>
+          )} />
         <Route component={Error} />
       </Switch>
     </Fragment>
