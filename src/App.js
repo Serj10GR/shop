@@ -36,10 +36,10 @@ const App = () => {
   }
 
   const updateCart = async (productId, quantity) => {
-    const res = await commerce.cart.update(productId, {quantity})
-    
+    const res = await commerce.cart.update(productId, {quantity})  
     setCart(res.cart)
   }
+
 
   const removeFromCart = async(productId) => {
     const res = await commerce.cart.remove(productId)
@@ -50,15 +50,7 @@ const App = () => {
     const refreshedCart  = await commerce.cart.refresh()
     setCart(refreshedCart)
   }
-
-  const handleCaptureCheckout = async(CheckoutTokenID, newOrder) => {
-   
-      await commerce.checkout.capture(CheckoutTokenID, newOrder)
-      refreshCart()
-
-  }
     
-
   useEffect(() => {
     getProducts()
     getCartData() 
@@ -94,7 +86,7 @@ const App = () => {
           render={() => (
             <Checkout 
               cart={cart}
-              handleCaptureCheckout={handleCaptureCheckout}
+              refreshCart={refreshCart}
             />
           )} />
         <Route component={Error} />
