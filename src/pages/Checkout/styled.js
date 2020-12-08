@@ -26,12 +26,13 @@ export const Title = styled.h2`
 `
 export const InnerContent = styled.div`
  width: 100%;
- padding: 10px 25px;
  background-color: #FDEDE3;
  display: flex;
  flex-direction: column;
  align-items: center;
- 
+ padding: 50px 25px;
+ border-bottom-left-radius: 20px;
+ border-bottom-right-radius: 20px;
 `
  
 

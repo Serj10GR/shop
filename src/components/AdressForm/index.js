@@ -1,24 +1,42 @@
-import { Fragment } from 'react'
-import {useForm, FormProvider } from 'react-hook-form'
+import { Fragment, useState } from 'react'
 
 import CustomInput from './CustomInput'
 import CustomDropDown from './CustomDropDown'
 
-import { FormTitle, Form } from './styled'
+import { 
+  FormTitle,
+  Form,
+  ButtonsContainer,
+  Button
+ } from './styled'
 
-const AdressForm = ({token}) => {
-  const methods = useForm()
+const AdressForm = ({handleSubmit}) => {
+  const [shippingData, setShippingData] = useState({})
+
+  const handleChange = event => {
+    const {name, value} = event.target
+    setShippingData(prevState => {
+      return {
+        ...prevState,
+        [name]: value
+      }
+    })
+    
+  }
+
+  
   return (
     <Fragment>
       <FormTitle>Fă comanda <br/> Noi revenim cu apel pentru confirmare </FormTitle>
-      <FormProvider {...methods}>
-        <Form>
+        <Form onSubmit={(e) => handleSubmit(e, shippingData) }>
           <CustomInput 
             required 
             name='name' 
             label='Numele'
             placeholder='Numele'
             type='text'
+            onChange={handleChange}
+            value={shippingData.name}
           />
           <CustomInput
             required 
@@ -26,7 +44,8 @@ const AdressForm = ({token}) => {
             label='Telefon'
             placeholder='Telefon'
             type='tel'
-            pattern="[+]{1}[0-9]{11,14}"
+            onChange={handleChange}
+            value={shippingData.tel}
           />
           <CustomInput
             required
@@ -34,12 +53,15 @@ const AdressForm = ({token}) => {
             label='Adresa'
             placeholder='Adresa'
             type='text'
+            onChange={handleChange}
+            value={shippingData.adress}
           />
           <CustomDropDown />
+          <ButtonsContainer>
+            <Button>Back</Button>
+            <Button isPrimary>Next</Button>
+          </ButtonsContainer>
         </Form>
-
-      </FormProvider>
-      
     </Fragment>
   )
 }

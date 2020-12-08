@@ -46,6 +46,19 @@ const App = () => {
     setCart(res.cart)
   }
 
+  const refreshCart = async()=> {
+    const refreshedCart  = await commerce.cart.refresh()
+    setCart(refreshedCart)
+  }
+
+  const handleCaptureCheckout = async(CheckoutTokenID, newOrder) => {
+   
+      await commerce.checkout.capture(CheckoutTokenID, newOrder)
+      refreshCart()
+
+  }
+    
+
   useEffect(() => {
     getProducts()
     getCartData() 
@@ -79,7 +92,10 @@ const App = () => {
         <Route
           path='/checkout'
           render={() => (
-            <Checkout cart={cart}/>
+            <Checkout 
+              cart={cart}
+              handleCaptureCheckout={handleCaptureCheckout}
+            />
           )} />
         <Route component={Error} />
       </Switch>

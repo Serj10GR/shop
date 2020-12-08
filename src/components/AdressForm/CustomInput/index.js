@@ -8,7 +8,8 @@ const CustomInput = ({
   required,
   placeholder,
   type,
-  pattern}) => {
+  pattern,
+onChange}) => {
   return (
     <InputWrapper>
        <Label>{label}</Label>
@@ -17,7 +18,8 @@ const CustomInput = ({
         name={name} 
         placeholder={placeholder}
         type={type}
-        pattern={pattern} 
+        pattern={pattern}
+        onChange={onChange} 
       /> 
     </InputWrapper>
   )

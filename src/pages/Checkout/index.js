@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react'
 import { commerce } from '../../lib/commerce'
 import AdressForm from '../../components/AdressForm'
 
-import {Button} from '../Cart/styled'
 import {
   CheckOutContainer,
   CheckOutWrapper,
@@ -11,8 +10,27 @@ import {
   InnerContent,
   } from './styled'
 
-const Checkout = ({cart}) => {
+const Checkout = ({cart, handleCaptureCheckout}) => {
   const [token, setToken] = useState(null)
+  const [shippingData, setShippingData] = useState(null)
+
+  const handleUserDataSubtit = (event, userData) => {
+    event.preventDefault();
+    setShippingData(userData)
+  }
+
+  const handleOrder = () => {
+    const orderData = {
+      line_items: token.live.line_items,
+      customer: { firstName: shippingData.name, phone: shippingData.tel },
+      shipping: {
+        name: 'Primary',
+        street: shippingData.street,
+        town_city: shippingData.city
+      }
+    }
+    handleCaptureCheckout(token.id, orderData)
+  }
 
   useEffect(() => {
     const createToken = async () => {
@@ -28,6 +46,7 @@ const Checkout = ({cart}) => {
 
   }, [cart])
 
+  console.log(shippingData)
 
   return (
     <CheckOutContainer>
@@ -36,11 +55,9 @@ const Checkout = ({cart}) => {
           <Title>Chechout</Title>
         </Header>
         <InnerContent>
-          {
-            token && <AdressForm token={token} />
-          }
+          { token && !shippingData && <AdressForm handleSubmit={handleUserDataSubtit} />}
+          {shippingData && <button onClick={handleOrder}>Confirm</button>}
         </InnerContent>
-       <Button>Next</Button>
       </CheckOutWrapper>
     </CheckOutContainer>
   )
