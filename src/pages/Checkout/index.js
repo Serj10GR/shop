@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import AdressForm from '../../components/AdressForm'
+import ConfirmBlock from '../../components/AdressForm/ConfirmBlock'
 
 import emailjs from 'emailjs-com';
 
@@ -29,6 +30,10 @@ const Checkout = ({cart, refreshCart}) => {
     setEmailProps(props)
   }
 
+  const handleBackStep = () => {
+    setShippingData(null)
+  }
+
 
   const clickHandler = ()=> {
     emailjs.send('service_4mec50a', 'template_8wmytn8', emailProps, 'user_71CZsYlbqz7Hp3eSXUJKb')
@@ -40,17 +45,24 @@ const Checkout = ({cart, refreshCart}) => {
       refreshCart();
   }
 
+  console.log(cart)
 
   return (
     <CheckOutContainer>
       <CheckOutWrapper>
         <Header>
-          <Title>Chechout</Title>
+         <Title>{shippingData ? 'Confirmare' : "Checkout"}</Title>
         </Header>
         <InnerContent>
-          {!shippingData && <AdressForm handleSubmit={handleUserDataSubmit} />}
-          {/* TO DO: add a confirm component */}
-          {shippingData && <button onClick={clickHandler}>Confirm</button>}
+          {!shippingData 
+            ? <AdressForm handleSubmit={handleUserDataSubmit} />
+            : <ConfirmBlock 
+                cart={cart} 
+                submitOrder={clickHandler}
+                shippingData={shippingData}
+                handleBackStep={handleBackStep} 
+              />
+          }
         </InnerContent>
       </CheckOutWrapper>
     </CheckOutContainer>

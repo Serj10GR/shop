@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import CustomInput from './CustomInput'
 import CustomDropDown from './CustomDropDown'
@@ -48,7 +49,7 @@ const AdressForm = ({handleSubmit}) => {
             value={shippingData.tel}
           />
           <CustomInput
-            required
+            // required to put condition depend on city
             name='adress'
             label='Adresa'
             placeholder='Adresa'
@@ -58,8 +59,11 @@ const AdressForm = ({handleSubmit}) => {
           />
           <CustomDropDown />
           <ButtonsContainer>
-            <Button>Back</Button>
-            <Button isPrimary>Next</Button>
+            <Link to='/cart'>
+              <Button>Back</Button>
+            </Link>
+            
+            <Button type='submit' isPrimary>Next</Button>
           </ButtonsContainer>
         </Form>
     </Fragment>

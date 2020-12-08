@@ -11,6 +11,7 @@ export const Form = styled.form`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: ${props => props.isConfirm ? '40px' : ''};
 `
 
 export const Button = styled.button`
@@ -26,5 +27,9 @@ export const Button = styled.button`
   font-weight: 700;
   letter-spacing: 2px;
   cursor: pointer;
+
+  &:last-of-type {
+    margin-left: 40px;
+  }
 
 `
