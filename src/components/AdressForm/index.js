@@ -57,7 +57,7 @@ const AdressForm = ({handleSubmit}) => {
             onChange={handleChange}
             value={shippingData.adress}
           />
-          <CustomDropDown />
+          <CustomDropDown handleChange={handleChange} value={shippingData.city} />
           <ButtonsContainer>
             <Link to='/cart'>
               <Button>Back</Button>

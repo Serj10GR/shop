@@ -1,15 +1,19 @@
 import {DropDownWrapper, Select, Option ,Label} from './styled'
 
-const CustomDropDown = () => {
+const CustomDropDown = ({value, handleChange}) => {
   return (
     <DropDownWrapper>
       <Label>Localitate</Label>
-      <Select>
-        <Option>Cimișlia</Option>
-        <Option>Ecaterinovca</Option>
-        <Option>Dimitrovca</Option>
-        <Option>Valea Perjei</Option>
-        <Option>Ciucur Mingir</Option>
+      <Select 
+        value={value} 
+        onChange={handleChange}
+        name='city'
+      >
+        <Option value='Cimișlia'>Cimișlia</Option>
+        <Option value="Ecaterinovca">Ecaterinovca</Option>
+        <Option value='Dimitrovca'>Dimitrovca</Option>
+        <Option value='Valea Perjei'>Valea Perjei</Option>
+        <Option value="Ciucur Mingir">Ciucur Mingir</Option>
       </Select>
     </DropDownWrapper>
   )

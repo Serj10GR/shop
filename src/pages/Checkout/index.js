@@ -16,6 +16,7 @@ import {
 const Checkout = ({cart, refreshCart}) => {
   const [emailProps, setEmailProps] = useState(null)
   const [shippingData, setShippingData] = useState(null)
+  const [isConfimerd, setIsConfirmed] = useState(false)
 
   const handleUserDataSubmit = (event, userData) => {
     event.preventDefault();
@@ -59,7 +60,7 @@ const Checkout = ({cart, refreshCart}) => {
             : <ConfirmBlock 
                 cart={cart} 
                 submitOrder={clickHandler}
-                shippingData={shippingData}
+                {...shippingData}
                 handleBackStep={handleBackStep} 
               />
           }

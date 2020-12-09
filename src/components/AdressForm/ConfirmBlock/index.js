@@ -3,7 +3,14 @@ import {Fragment} from 'react'
 import {ButtonsContainer, Button} from '../styled'
 import {TextLine, Cell, Subtitle, Price} from './styled'
 
-const ConfirmBlock = ({submitOrder, cart, shippingData, handleBackStep}) => {
+const ConfirmBlock = ({
+  submitOrder,
+  cart,
+  name,
+  tel,
+  adress,
+  city,
+  handleBackStep}) => {
   return (
     <Fragment>
       <Subtitle>Comanda: </Subtitle>
@@ -17,16 +24,16 @@ const ConfirmBlock = ({submitOrder, cart, shippingData, handleBackStep}) => {
 
       <Subtitle>Livrare: </Subtitle>
       <TextLine>
-        Nume: <Cell>{shippingData.name}</Cell>
+        Nume: <Cell>{name}</Cell>
       </TextLine>
       <TextLine>
-        Telefon: <Cell>{shippingData.tel}</Cell>
+        Telefon: <Cell>{tel}</Cell>
       </TextLine>
       <TextLine>
-        Adresa: <Cell>{shippingData.adress}</Cell>
+        Adresa: <Cell>{adress}</Cell>
       </TextLine>
       <TextLine>
-        Localitate: <Cell>Cimislia</Cell> 
+        Localitate: <Cell>{city}</Cell> 
       </TextLine>
 
       <ButtonsContainer isConfirm>
