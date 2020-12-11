@@ -16,16 +16,24 @@ import Error from './pages/error'
 
 const App = () => {
   const [products, setProducts] = useState([])
+  const [allProducts, setAllProducst]= useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [cart, setCart] = useState({})
+  const [categories, setCategories] = useState([])
 
   const getProducts = async () => {
     setIsLoading(true)
     const { data } = await commerce.products.list()
     setProducts(data)
+    setAllProducst(data)
     setIsLoading(false)
   }
-
+  const getCategories = async () => {
+    const response = await commerce.categories.list()
+    const categories = response.data
+    categories.push({slug: 'all', name: 'all', id: 123})
+    setCategories(response.data)
+  }
   const getCartData = async () => {
     const res = await commerce.cart.retrieve()
     setCart(res)
@@ -50,10 +58,20 @@ const App = () => {
     const refreshedCart  = await commerce.cart.refresh()
     setCart(refreshedCart)
   }
+
+  const filterProducts = category => {
+    if(category === 'all') {
+      setProducts(allProducts)
+      return
+    }
+    const newProducts = allProducts.filter(prod => prod.categories[0].slug === category)
+    setProducts(newProducts)
+  }
     
   useEffect(() => {
     getProducts()
     getCartData() 
+    getCategories()
   }, [])
 
   return (
@@ -67,7 +85,9 @@ const App = () => {
             <Home 
               products={products} 
               isLoading={isLoading}
-              addToCart={addToCart} 
+              addToCart={addToCart}
+              categories={categories}
+              filterProducts={filterProducts} 
               />
           )} />
         <Route path='/about/' component={About} />
