@@ -52,7 +52,10 @@ export const NavButtonsWrapper = styled.div`
   display: flex;
 `
 
-export const NavList = styled.ul`
+type NavListProps = {
+  isOpen: boolean,
+}
+export const NavList = styled.ul<NavListProps>`
   height: ${(props) => (props.isOpen ? '100px' : '0')};
   overflow: hidden;
   transition: all 0.3s linear;

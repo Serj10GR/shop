@@ -10,13 +10,22 @@ import {
   AddBtn
   } from './styled'
 
+type ProductProps = {
+  id: number,
+  name: string,
+  price: number,
+  description: string,
+  img: string,
+  addToCart: any
+}
+
 const Product = ({
   id,
   name, 
   price, 
   description, 
   img,
-  addToCart}) => {
+  addToCart}: ProductProps) => {
   return (
     <ProductWrapper>
       <ProductHeader>

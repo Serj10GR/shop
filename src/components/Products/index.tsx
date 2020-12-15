@@ -3,8 +3,13 @@ import React from 'react'
 import Product from './Product'
 import {ProductsWrapper} from './styled'
 
+type ProductsProps = {
+ products: any;
+ isLoading: boolean,
+ addToCart: any
+}
 
-const Products = ({products, isLoading, addToCart}) => {
+const Products = ({products, isLoading, addToCart} : ProductsProps) => {
 
   return (
     <ProductsWrapper>
