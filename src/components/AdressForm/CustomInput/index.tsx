@@ -1,6 +1,16 @@
 
 import {InputWrapper, Label, Input} from './styled'
 
+type TCustomInput = {
+  label: string,
+  name: string,
+  required?: boolean,
+  placeholder: string,
+  type: any,
+  pattern?: any,
+  value: string,
+  onChange: any
+}
 
 const CustomInput = ({
   label,
@@ -9,7 +19,8 @@ const CustomInput = ({
   placeholder,
   type,
   pattern,
-onChange}) => {
+  value,
+  onChange}: TCustomInput) => {
   return (
     <InputWrapper>
        <Label>{label}</Label>
@@ -19,7 +30,8 @@ onChange}) => {
         placeholder={placeholder}
         type={type}
         pattern={pattern}
-        onChange={onChange} 
+        onChange={onChange}
+        value={value} 
       /> 
     </InputWrapper>
   )

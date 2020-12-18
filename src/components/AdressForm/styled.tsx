@@ -7,14 +7,21 @@ export const FormTitle = styled.h3`
 
 export const Form = styled.form`
 `
+type ButtonsContainerType = {
+  isConfirm?: boolean
+}
 
-export const ButtonsContainer = styled.div`
+export const ButtonsContainer = styled.div<ButtonsContainerType>`
   display: flex;
   justify-content: space-between;
   margin-top: ${props => props.isConfirm ? '40px' : ''};
 `
 
-export const Button = styled.button`
+type ButtonTypes = {
+  isPrimary?: boolean
+}
+
+export const Button = styled.button<ButtonTypes>`
   padding: 0.5em 1em;
   outline: none;
   border: 0;

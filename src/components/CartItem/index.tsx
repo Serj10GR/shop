@@ -10,6 +10,16 @@ import {
   CloseIcon
 } from './styled'
 
+type TCartItem = {
+ id: string,
+ name: string,
+ media: any,
+ quantity: number,
+ price: any
+ removeFromCart: any,
+ updateCart: any
+}
+
 const CartItem = ({
   id,
   name,
@@ -17,7 +27,7 @@ const CartItem = ({
   quantity,
   price, 
   removeFromCart,
-  updateCart}) => {
+  updateCart}: TCartItem) => {
   return (
     <CartItemWrapper>
       <img src={media.source} alt={name}/>
