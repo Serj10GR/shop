@@ -1,6 +1,11 @@
 import {DropDownWrapper, Select, Option ,Label} from './styled'
 
-const CustomDropDown = ({value, handleChange}) => {
+type CustomDropDownType = {
+  value: string,
+  handleChange: any
+}
+
+const CustomDropDown = ({value, handleChange}: CustomDropDownType) => {
   return (
     <DropDownWrapper>
       <Label>Localitate</Label>

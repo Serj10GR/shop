@@ -39,7 +39,10 @@ export const TotalPrice = styled.h3`
     color: #DC4763;
   }
 `
-export const CartContent = styled.div`
+type CartContentTypes = {
+  isEmptyCart?: boolean
+}
+export const CartContent = styled.div<CartContentTypes>`
  width: 100%;
  padding: ${props => props.isEmptyCart ? '50px 25px' : '10px 25px'};
  background-color: #FDEDE3;

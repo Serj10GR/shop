@@ -10,8 +10,10 @@ export const TextLine = styled.div`
  display: flex;
  margin-bottom: 8px;
 `
-
-export const Cell = styled.div`
+type CellType = {
+  isPrice?: boolean
+}
+export const Cell = styled.div<CellType>`
  margin-left: 20px;
  font-weight: ${props => props.isPrice ? '400' : '700'}
 `

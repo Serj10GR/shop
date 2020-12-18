@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 
 import { Link } from 'react-router-dom'
+import { EnumType } from 'typescript'
 
 import CartItem from '../../components/CartItem'
 
@@ -17,8 +18,25 @@ import {
   Button,
    } from './styled'
 
+type TCartItem = {
+  id: string,
+  name: string,
+  media: any,
+  quantity: number,
+  price: any
+  removeFromCart: any,
+  updateCart: any
+}
 
-const Cart = ({cart, removeFromCart, updateCart}) => {
+type TCart = {
+ cart: {
+   line_items: Array<TCartItem>,
+   subtotal: any
+ }
+ removeFromCart: Function,
+ updateCart: Function
+}
+const Cart = ({cart, removeFromCart, updateCart}: TCart) => {
   const isEmpty = !cart.line_items?.length; 
 
 
@@ -68,13 +86,8 @@ const Cart = ({cart, removeFromCart, updateCart}) => {
             <Button>Comanda acum</Button>
           </Link>
         }
-
       </CartWrapper>
-    </CartContainer>
-
-    
-    
-              
+    </CartContainer>         
   )
 }
 

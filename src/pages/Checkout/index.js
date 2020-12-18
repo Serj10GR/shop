@@ -13,21 +13,14 @@ import {
   InnerContent,
   } from './styled'
 
-type TCheckout = {
-  cart: any,
-  refreshCart: Function
-}
-type shippingDataTypes = {
-  name: string,
-  tel: string,
-}
 
-const Checkout = ({cart, refreshCart}: TCheckout) => {
+
+const Checkout = ({cart, refreshCart}) => {
   const [emailProps, setEmailProps] = useState(null)
   const [shippingData, setShippingData] = useState(null)
   const [isConfimerd, setIsConfirmed] = useState(false)
 
-  const handleUserDataSubmit = (event: any, userData: shippingDataTypes ) => {
+  const handleUserDataSubmit = (event, userData) => {
     event.preventDefault();
     setShippingData(userData)
 
