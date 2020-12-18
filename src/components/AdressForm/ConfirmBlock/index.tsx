@@ -3,6 +3,27 @@ import {Fragment} from 'react'
 import {ButtonsContainer, Button} from '../styled'
 import {TextLine, Cell, Subtitle, Price} from './styled'
 
+
+type ConfirmBlockType = {
+ submitOrder: () => void,
+ tel: string,
+ adress: string,
+ city: string,
+ name: string,
+ handleBackStep: () => void,
+ cart: {
+   line_items: Array<{
+     name: string,
+     price: {
+       formatted_with_code: string
+     },
+   }>,
+   subtotal: {
+     formatted_with_code: string
+   }
+ }
+}
+
 const ConfirmBlock = ({
   submitOrder,
   cart,
@@ -10,7 +31,7 @@ const ConfirmBlock = ({
   tel,
   adress,
   city,
-  handleBackStep}) => {
+  handleBackStep}: ConfirmBlockType) => {
   return (
     <Fragment>
       <Subtitle>Comanda: </Subtitle>
